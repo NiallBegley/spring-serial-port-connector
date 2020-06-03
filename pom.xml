@@ -22,9 +22,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <nrjavaserial.version>3.12.0</nrjavaserial.version>
+        <nrjavaserial.version>5.2.1</nrjavaserial.version>
         <lombok.version>1.16.18</lombok.version>
+        <github.maven.repository>file:///home/alex/repository/maven-repository/</github.maven.repository>
     </properties>
+
 
     <scm>
         <connection>scm:git:git://github.com/diegosep/spring-serial-port-connector.git</connection>
@@ -147,15 +149,11 @@
 
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
+  	<repository>
+  		<id>maven-repository</id>
+  		<url>${github.maven.repository}</url>
+  	</repository>
+  </distributionManagement>
 
 
 </project>
