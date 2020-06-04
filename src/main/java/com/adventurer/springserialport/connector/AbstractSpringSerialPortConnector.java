@@ -87,6 +87,7 @@ public abstract class AbstractSpringSerialPortConnector implements SpringSerialP
 
                 if (!serial.isConnected()) {
                     log.info("Connection closed!");
+                    connectionDisconnected();
                 }
             }
         }
@@ -103,4 +104,6 @@ public abstract class AbstractSpringSerialPortConnector implements SpringSerialP
      * @param line input data that comes from Serial port
      */
     public abstract void processData(String line);
+
+    public abstract void connectionDisconnected();
 }
