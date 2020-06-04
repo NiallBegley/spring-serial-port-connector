@@ -81,7 +81,19 @@ public abstract class AbstractSpringSerialPortConnector implements SpringSerialP
             } catch (Exception e) {
                 log.error("Error ", e);
             }
+        } else if(serialPortEvent.getEventType() == SerialPortEvent.HARDWARE_ERROR) {
+            if (serial != null && serial.isConnected()) {
+                serial.disconnect();
+
+                if (!serial.isConnected()) {
+                    log.info("Connection closed!");
+                }
+            }
         }
+    }
+
+    public synchronized boolean isConnected() {
+        return serial.isConnected();
     }
 
     /**
